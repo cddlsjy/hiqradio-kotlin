@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    tools:context=".ui.activity.PlayingActivity">
+
+    <!-- Back button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/cd_back"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Station icon -->
+    <ImageView
+        android:id="@+id/stationIcon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_foreground"
+        android:contentDescription="@string/cd_station_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <!-- Station name -->
+    <TextView
+        android:id="@+id/stationName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/stationIcon"
+        tools:text="Radio Station Name" />
+
+    <!-- Station country -->
+    <TextView
+        android:id="@+id/stationCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/stationName"
+        tools:text="Country" />
+
+    <!-- Station tags -->
+    <TextView
+        android:id="@+id/stationTags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/gray_light"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/stationCountry"
+        tools:text="tags" />
+
+    <!-- Station info -->
+    <LinearLayout
+        android:id="@+id/stationInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/stationTags"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/stationBitrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_light"
+            android:textSize="12sp"
+            tools:text="128 kbps" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text=" | "
+            android:textColor="@color/gray_light" />
+
+        <TextView
+            android:id="@+id/stationCodec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_light"
+            android:textSize="12sp"
+            tools:text="MP3" />
+
+    </LinearLayout>
+
+    <!-- Status text -->
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/controlButtons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Playing" />
+
+    <!-- Control buttons -->
+    <LinearLayout
+        android:id="@+id/controlButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/stopButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/stop"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/playPauseButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="32dp"
+            android:background="@drawable/play_button_background"
+            android:contentDescription="@string/cd_play_pause"
+            android:src="@android:drawable/ic_media_play"
+            app:tint="@color/white" />
+
+        <View
+            android:layout_width="64dp"
+            android:layout_height="64dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
